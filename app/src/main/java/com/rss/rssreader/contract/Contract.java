@@ -2,10 +2,9 @@ package com.rss.rssreader.contract;
 
 
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
 
-import com.rss.rssreader.utils.Callback;
 import com.rss.rssreader.pojo.Rss;
+import com.rss.rssreader.utils.Callback;
 
 public interface Contract {
 

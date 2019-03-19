@@ -9,13 +9,13 @@ import java.io.Serializable;
 public class RssItem implements Serializable {
 
     @Element (name = "title")
-    String title;
+    private String title;
     @Element (name = "description")
-    String description;
+    private String description;
     @Element (name = "pubDate")
-    String pubDate;
+    private String pubDate;
     @Element
-    String link;
+    private String link;
 
     public RssItem(String title, String description, String pubDate, String link) {
         this.title = title;

@@ -2,19 +2,16 @@ package com.rss.rssreader.pojo;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
-import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;
-
-import java.util.List;
 
 @Root (strict = false)
 public class Rss {
 
     @Attribute
-    String version;
+    private String version;
 
     @Element
-    Channel channel;
+    private Channel channel;
 
     public Channel getChannel() {
         return channel;

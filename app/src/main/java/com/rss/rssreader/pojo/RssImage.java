@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Root(name = "image", strict = false)
 public class RssImage implements Serializable {
     @Element (name = "url")
-    String url;
+    private String url;
 
     public RssImage(String url) {
         this.url = url;

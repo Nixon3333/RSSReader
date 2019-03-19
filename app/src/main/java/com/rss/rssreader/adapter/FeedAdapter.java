@@ -33,9 +33,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
     @Override
     public void onBindViewHolder(@NonNull FeedViewHolder feedViewHolder, int i) {
         feedViewHolder.bind(rss.getChannel().getItems().get(i), listener);
-        /*feedViewHolder.tvTitle.setText(rss.getChannel().getItems().get(i).getTitle());
-        feedViewHolder.tvDate.setText(rss.getChannel().getItems().get(i).getPubDate());
-        feedViewHolder.tvContent.setText(rss.getChannel().getItems().get(i).getDescription());*/
     }
 
     @Override
@@ -48,7 +45,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         public TextView tvTitle, tvDate, tvContent;
         public ImageView rssImage;
 
-        public FeedViewHolder(@NonNull View itemView) {
+        FeedViewHolder(@NonNull View itemView) {
             super(itemView);
 
 
@@ -58,17 +55,12 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
             rssImage = itemView.findViewById(R.id.rssImage);
         }
 
-        public void bind(RssItem rssItem, OnItemClickListener listener) {
+        void bind(RssItem rssItem, OnItemClickListener listener) {
             tvTitle.setText(rssItem.getTitle());
             tvDate.setText(rssItem.getPubDate());
             tvContent.setText(rssItem.getDescription());
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    listener.onItemClick(rssItem);
-                }
-            });
+            itemView.setOnClickListener(view -> listener.onItemClick(rssItem));
         }
     }
 }

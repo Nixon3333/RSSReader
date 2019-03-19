@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
 
-import com.rss.rssreader.pojo.Rss;
-import com.rss.rssreader.utils.Callback;
 import com.rss.rssreader.contract.Contract;
 import com.rss.rssreader.model.Model;
+import com.rss.rssreader.pojo.Rss;
+import com.rss.rssreader.utils.Callback;
 
 public class Presenter implements Contract.Presenter {
 
@@ -19,6 +19,7 @@ public class Presenter implements Contract.Presenter {
         this.model = new Model();
     }
 
+    //Send request
     @Override
     public void getFeed(String baseUrl) {
         model.getFeed(baseUrl, new Callback<Rss>() {

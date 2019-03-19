@@ -26,7 +26,6 @@ public class FeedActivity extends AppCompatActivity implements Contract.View {
     ImageView rssImage;
     ProgressBar pbFeed;
     SwipeRefreshLayout swipeContainer;
-    AlertDialog dialog;
     Contract.Presenter presenter;
 
     @Override
@@ -47,6 +46,7 @@ public class FeedActivity extends AppCompatActivity implements Contract.View {
         getSupportActionBar().setTitle(rss.getChannel().getTitle());
     }
 
+    //Open url in browser
     private void openUrl(RssItem rssItem) {
         String url = rssItem.getLink();
         Intent i = new Intent(Intent.ACTION_VIEW);
@@ -66,6 +66,7 @@ public class FeedActivity extends AppCompatActivity implements Contract.View {
         presenter.getFeed(checkUrl(rssUrl));
     }
 
+    //Add '/' if need
     private String checkUrl(String rssUrl) {
         if (!rssUrl.endsWith("/"))
             rssUrl += "/";

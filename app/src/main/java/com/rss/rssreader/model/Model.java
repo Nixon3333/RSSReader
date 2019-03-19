@@ -2,11 +2,11 @@ package com.rss.rssreader.model;
 
 import android.util.Log;
 
-import com.rss.rssreader.pojo.Rss;
-import com.rss.rssreader.utils.Callback;
 import com.rss.rssreader.contract.Contract;
+import com.rss.rssreader.pojo.Rss;
 import com.rss.rssreader.retrofit.RetrofitAPI;
 import com.rss.rssreader.retrofit.RetrofitClient;
+import com.rss.rssreader.utils.Callback;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
@@ -53,6 +53,5 @@ public class Model implements Contract.Model {
 
                     }
                 });
-        observable.unsubscribeOn(AndroidSchedulers.mainThread());
     }
 }

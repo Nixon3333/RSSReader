@@ -11,13 +11,13 @@ import java.util.List;
 public class Channel implements Serializable{
 
     @Element (name = "title")
-    String title;
+    private String title;
     @Element (name = "description")
-    String description;
+    private String description;
     @ElementList (name = "item", inline = true)
-    List<RssItem> items;
+    private List<RssItem> items;
     @Element
-    RssImage image;
+    private RssImage image;
 
     public Channel(String title, String description, List<RssItem> items, RssImage image) {
         this.title = title;
