@@ -8,7 +8,7 @@ import org.simpleframework.xml.Root;
 import java.util.List;
 
 @Root (strict = false)
-public class RSS {
+public class Rss {
 
     @Attribute
     String version;
@@ -26,7 +26,7 @@ public class RSS {
 
     @Override
     public String toString() {
-        return "RSS{" +
+        return "Rss{" +
                 "version='" + version + '\'' +
                 ", channel=" + channel +
                 '}';

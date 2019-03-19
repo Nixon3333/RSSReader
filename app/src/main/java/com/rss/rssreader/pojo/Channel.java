@@ -16,11 +16,22 @@ public class Channel implements Serializable{
     String description;
     @ElementList (name = "item", inline = true)
     List<RssItem> items;
+    @Element
+    RssImage image;
 
-    public Channel(String title, String description, List<RssItem> items) {
+    public Channel(String title, String description, List<RssItem> items, RssImage image) {
         this.title = title;
         this.description = description;
         this.items = items;
+        this.image = image;
+    }
+
+    public RssImage getImage() {
+        return image;
+    }
+
+    public void setImage(RssImage image) {
+        this.image = image;
     }
 
     public List<RssItem> getItems() {

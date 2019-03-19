@@ -14,11 +14,22 @@ public class RssItem implements Serializable {
     String description;
     @Element (name = "pubDate")
     String pubDate;
+    @Element
+    String link;
 
-    public RssItem(String title, String description, String pubDate) {
+    public RssItem(String title, String description, String pubDate, String link) {
         this.title = title;
         this.description = description;
         this.pubDate = pubDate;
+        this.link = link;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public RssItem() {
@@ -41,7 +52,7 @@ public class RssItem implements Serializable {
     }
 
     public String getPubDate() {
-        return pubDate;
+        return pubDate.substring(0, pubDate.length() - 6);
     }
 
     public void setPubDate(String pubDate) {

@@ -1,8 +1,10 @@
 package com.rss.rssreader.model;
 
+import android.util.Log;
+
+import com.rss.rssreader.pojo.Rss;
 import com.rss.rssreader.utils.Callback;
 import com.rss.rssreader.contract.Contract;
-import com.rss.rssreader.pojo.RSS;
 import com.rss.rssreader.retrofit.RetrofitAPI;
 import com.rss.rssreader.retrofit.RetrofitClient;
 
@@ -15,10 +17,8 @@ import retrofit2.Retrofit;
 
 public class Model implements Contract.Model {
 
-    String title = "Hello";
-
     @Override
-    public void getFeed(String baseUrl, Callback<RSS> callback) {
+    public void getFeed(String baseUrl, Callback<Rss> callback) {
 
 
         Retrofit retrofit = RetrofitClient.getClient(baseUrl);
@@ -27,24 +27,25 @@ public class Model implements Contract.Model {
 
         RetrofitAPI api = retrofit.create(RetrofitAPI.class);
 
-        Observable<RSS> observable = api.getFeed();
+        Observable<Rss> observable = api.getFeed();
 
         observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<RSS>() {
+                .subscribe(new Observer<Rss>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(RSS rss) {
+                    public void onNext(Rss rss) {
                         callback.returnResult(rss);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        callback.returnError(e.getMessage());
+                        Log.d("RetroErr", e.getMessage());
                     }
 
                     @Override
@@ -52,23 +53,6 @@ public class Model implements Contract.Model {
 
                     }
                 });
+        observable.unsubscribeOn(AndroidSchedulers.mainThread());
     }
-
-
-
-        /*call.enqueue(new Callback<RSS>() {
-            @Override
-            public void onResponse(Call<RSS> call, Response<RSS> response) {
-                Log.d("RetrofitResp", response.body().getChannel().getTitle());
-                title = response.body().getChannel().getTitle();
-            }
-
-            @Override
-            public void onFailure(Call<RSS> call, Throwable t) {
-                Log.d("RetrofitErr", t.toString());
-
-            }
-        });
-        return title;*/
-
 }
