@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RSSReader</string>
+    <string name="enter_rss_url">Введите адрес RSS-ленты</string>
+    <string name="rss_url_sample">https://news.yandex.ru/auto.rss/</string>
 </resources>

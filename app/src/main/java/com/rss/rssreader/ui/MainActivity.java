@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.rss.rssreader.R;
 
@@ -26,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
     private void initUI() {
         btRss = findViewById(R.id.btRss);
         etRssUrl = findViewById(R.id.etRssUrl);
+        etRssUrl.setOnEditorActionListener((v, actionId, event) -> {
+            if(actionId== EditorInfo.IME_ACTION_DONE){
+                btRss.performClick();
+            }
+            return false;
+        });
         }
 
     public void onRssBtClick(View view) {
