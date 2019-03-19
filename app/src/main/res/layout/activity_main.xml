@@ -17,6 +17,7 @@
         android:gravity="center"
         android:text="@string/enter_rss_url"
         android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

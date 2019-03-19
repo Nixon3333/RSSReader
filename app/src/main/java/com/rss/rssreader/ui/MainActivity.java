@@ -28,14 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initUI() {
         btRss = findViewById(R.id.btRss);
+
         etRssUrl = findViewById(R.id.etRssUrl);
         etRssUrl.setOnEditorActionListener((v, actionId, event) -> {
-            if(actionId== EditorInfo.IME_ACTION_DONE){
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
                 btRss.performClick();
             }
             return false;
         });
-        }
+    }
 
     public void onRssBtClick(View view) {
         btRss.setClickable(false);

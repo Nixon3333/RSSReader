@@ -22,8 +22,6 @@ public class Model implements Contract.Model {
 
 
         Retrofit retrofit = RetrofitClient.getClient(baseUrl);
-        // https://lenta.ru/rss/news/
-        // https://news.yandex.ru/auto.rss/
 
         RetrofitAPI api = retrofit.create(RetrofitAPI.class);
 
