@@ -4,12 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rss.rssreader.R;
 
@@ -41,10 +40,14 @@ public class MainActivity extends AppCompatActivity {
     public void onRssBtClick(View view) {
         btRss.setClickable(false);
         Intent intent = new Intent(this, FeedActivity.class);
-        intent.putExtra("rssUrl", etRssUrl.getText().toString());
-        Log.d("RSS", etRssUrl.getText().toString());
-        btRss.setClickable(true);
-        startActivity(intent);
-
+        if (!etRssUrl.getText().toString().equals("")) {
+            intent.putExtra("rssUrl", etRssUrl.getText().toString());
+            Log.d("RSS", etRssUrl.getText().toString());
+            btRss.setClickable(true);
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "Поле RSS-адреса не может быть пустым", Toast.LENGTH_LONG).show();
+            btRss.setClickable(true);
+        }
     }
 }
