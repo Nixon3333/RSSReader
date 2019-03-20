@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRssBtClick(View view) {
         btRss.setClickable(false);
         Intent intent = new Intent(this, FeedActivity.class);
-        if (!etRssUrl.getText().toString().equals("")) {
+        if (!etRssUrl.getText().toString().trim().equals("")) {
             intent.putExtra("rssUrl", etRssUrl.getText().toString());
             Log.d("RSS", etRssUrl.getText().toString());
             btRss.setClickable(true);
