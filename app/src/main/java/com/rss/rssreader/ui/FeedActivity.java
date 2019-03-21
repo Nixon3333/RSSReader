@@ -95,7 +95,7 @@ public class FeedActivity extends AppCompatActivity implements Contract.View {
         String temp = rssUrl;
         if (!rssUrl.endsWith("/"))
             rssUrl += "/";
-        if (!rssUrl.startsWith("http://") | (!rssUrl.startsWith("https://")))
+        if (!rssUrl.startsWith("http://") & (!rssUrl.startsWith("https://")))
             temp = "http://" + rssUrl;
         return temp;
     }
